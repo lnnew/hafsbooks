@@ -15,6 +15,7 @@ var express = require('express');
 var path = require('path');
 var methodOverride = require('method-override');
 var app = express();
+ const PORT = process.env.PORT;
 var engine = require('ejs-locals');
 var fs = require('fs');
 
@@ -126,6 +127,6 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
-app.listen(3001, function () {
+app.listen(PORT || 3001, function () {
   console.log('Example app listening on port 3001!')
 });
