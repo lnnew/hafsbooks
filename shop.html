@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<body class="w3-content" style="max-width:1600px; background:#e0fffc">
+  <div class="content_wrapper">
+    <style>
+
+        .content_wrapper {
+          padding-left: 150px;
+          padding-right: 150px;
+          padding-bottom: 100px;
+          padding-top:80px;
+          background:white;
+          height:100% ;
+           margin-left: auto;
+           margin-right: auto;
+        }
+        .header {
+          font-size:13px;
+          list-style-type: none;
+          margin: 0;
+          padding: 0px;
+          overflow: hidden;
+          border: 1px solid #e7e7e7;
+          background-color: #86DBD4;
+        }
+
+        li {
+          float: left;
+        }
+
+        li a {
+          display: block;
+          color: #666;
+          text-align: center;
+          padding: 10px 16px;
+          text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+          background-color: white;
+        }
+
+        li a.active {
+          color: black;
+          background-color: #FEE5A5;
+        }
+        .logo1 {
+          width:95%;
+        }
+        @media only screen and (max-width: 1000px) {
+            .content_wrapper {
+              padding-left: 0px;
+              padding-right: 0px;
+        }
+          li a {
+            padding: 10px 6px;
+        }
+          .content_wrapper {
+                width:100%;
+          }
+        .header {
+          font-size:1.7vw;
+        }
+        .logo1 {
+          width:16vw;
+        }
+
+        }
+  </style>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:270px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <img src ="data\logo.jpg" class="logo1" style="width:100px;">
+  </div>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding w3-card w3-round" style="background-color:#86DBD6;"><i class="fa fa-user" style="color::white;"aria-hidden="true"></i><u>로그아웃하기</u></a>
+  <a href="#footer" class="w3-bar-item w3-button w3-padding w3-card w3-round" style="background-color:#FCD0E9;"><i class="fa fa-user w3-white" aria-hidden="true"></i>회원 정보 수정</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding w3-card w3-round" style="background-color:#FEE4AB;" onclick="document.getElementById('newsletter').style.display='block'"><i class="fa fa-question-circle w3-white" aria-hidden="true"></i>북마켓이란?</a>
+
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="#" class="w3-bar-item  w3-button">카테고리</a>
+
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      국제 도서 <i class="fa fa-caret-down"></i>
+    </a>
+      <form action="/" method="post" id ="cat">
+    <div id="demoAcc" class="w3-bar-block w3-card w3-padding-large w3-medium">
+
+      <button class="w3-bar-item w3-button" type="submit" form="cat" value="AP">AP</button>
+      <button class="w3-bar-item w3-button" type="submit" form="cat" value="SAT/ACT">SAT/ACT</button>
+      <a href="#" class="w3-bar-item w3-button">SAT2</a>
+      <a href="#" class="w3-bar-item w3-button">etc</a>
+    </div>
+
+    <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      국내 도서 <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc2" class="w3-bar-block w3-card  w3-padding-large w3-medium">
+
+      <a href="#" class="w3-bar-item w3-button">모의고사</a>
+      <a href="#" class="w3-bar-item w3-button">국어</a>
+      <a href="#" class="w3-bar-item w3-button">수학</a>
+      <a href="#" class="w3-bar-item w3-button">사탐</a>
+      <a href="#" class="w3-bar-item w3-button">과탐</a>
+      <a href="#" class="w3-bar-item w3-button">외국어</a>
+      <a href="#" class="w3-bar-item w3-button">영어</a>
+      <a href="#" class="w3-bar-item w3-button">교과서</a>
+    </div>
+
+    <a onclick="myAccFunc3()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      공용 및 기타 <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc3" class="w3-bar-block w3-card w3-padding-large w3-medium">
+
+      <a href="#" class="w3-bar-item w3-button">단어책</a>
+      <a href="#" class="w3-bar-item w3-button">문학/소설/과학</a>
+    </div>
+  </form>
+    </div>
+
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-xlarge" style="background:#e0fffc;">
+  <div class="w3-row">
+    <div class="w3-col" style="width:25%">
+  <img src ="data\logo.jpg" class="logo1" style="width:83px;">
+</div>
+    <div class="w3-col" style="width:65%">
+      <h3>
+     HAFS 책방
+   </h3>
+   </div>
+       <div class="w3-col" style="width:5%">
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-12 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+</div>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:290px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    <p class="w3-left">Jeans</p>
+    <p class="w3-right">
+      <a href="/auth/cart"><button class="w3-button w3-round"><i class="fa fa-shopping-cart w3-margin-right"></i></button></a>
+      <a href="/auth/search"><button class="w3-button w3-round"><i class="fa fa-search"></i></button></a>
+
+    </p>
+  </header>
+
+  <!-- Image header -->
+
+
+  <div class="w3-container w3-text-grey" id="jeans">
+    <p>8 items</p>
+  </div>
+
+  <!-- Product grid -->
+  <div id="p-grid">
+
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg"/>
+        <div class="p-name">Item B</div>
+        <div class="p-price">$88.88</div>
+
+        <button class="p-add classA"><i class="fa fa-shopping-cart w3-margin-right"></i>장바구니</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg"/>
+        <div class="p-name">Item B</div>
+        <div class="p-price">$88.88</div>
+
+        <button class="p-add classA"><i class="fa fa-shopping-cart w3-margin-right"></i>장바구니</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg"/>
+        <div class="p-name">Item B</div>
+        <div class="p-price">$88.88</div>
+
+        <button class="p-add classA"><i class="fa fa-shopping-cart w3-margin-right"></i>장바구니</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg"/>
+        <div class="p-name">Item B</div>
+        <div class="p-price">$88.88</div>
+
+        <button class="p-add classA"><i class="fa fa-shopping-cart w3-margin-right"></i>장바구니</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg"/>
+        <div class="p-name">Item B</div>
+        <div class="p-price">$88.88</div>
+
+        <button class="p-add classA"><i class="fa fa-shopping-cart w3-margin-right"></i>장바구니</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg"/>
+        <div class="p-name">Item B</div>
+        <div class="p-price">$88.88</div>
+
+        <button class="p-add classA"><i class="fa fa-shopping-cart w3-margin-right"></i>장바구니</button>
+      </div></div>
+    </div>
+    <style>
+       /* Grid container */
+       #p-grid {
+         max-width: 1000px;
+         margin: 0 auto;
+         display: grid;
+         /* Width of columns */
+         grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% ;
+       }
+       /* Product items */
+       div.p-grid-in {
+         box-sizing: border-box;
+         margin: 5px;
+         padding: 10px;
+         border: 1px solid #e8f0ff;
+         background: #f2f7ff;
+       }
+       img.p-img {
+         width: 100%;
+         height: auto;
+       }
+       div.p-name {
+         font-size: 0.7em;
+       }
+       div.p-price {
+         text-align:center;
+         color: #f44242;
+       }
+       div.p-desc {
+         color: #888;
+         font-size: 0.9em;
+       }
+       button.p-add:hover {
+         opacity:0.7;
+       }
+
+       button.p-add {
+         background: #f46b41;
+         color: #fff;
+         border: none;
+         width: 100%;
+         padding: 10px;
+         margin: 10px 5px 5px 5px;
+         font-size: 0.65em;
+         cursor: pointer;
+       }
+       button.classA{
+          background: #86DBD4;
+       }
+       button.classB{
+          background: #FEE5A5;
+       }
+       button.classC{
+          background: #EDADBB;
+       }
+       /* Responsive */
+
+       @media only screen and (max-width: 600px) {
+         #p-grid { grid-template-columns:25% 25% 25% 25%; }
+       }
+       /* [DOES NOT MATTER] */
+       html, body {
+         padding: 0;
+         margin: 0;
+         font-family: arial, sans-serif;
+       }
+       .bb  {
+         background-color:#e0fffc;
+       }
+     </style>
+  <!-- Subscribe section -->
+
+  <!-- Footer -->
+  <footer class="bb w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+    <div class="w3-row-padding bb">
+    </div>
+  </footer>
+
+
+  <!-- End page content -->
+</div>
+
+<!-- Newsletter Modal -->
+<div id="newsletter" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+    <div class="w3-container w3-white w3-center">
+      <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+      <h2 align:'center' >북마켓<i class="fa fa-question-circle" aria-hidden="true"></i></h2>
+      <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
+      <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">좋은 것 같아요!<i class="far fa-grin-stars"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Accordion
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function myAccFunc2() {
+  var x = document.getElementById("demoAcc2");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function myAccFunc3() {
+  var x = document.getElementById("demoAcc3");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+</div>
+</body>
+</html>

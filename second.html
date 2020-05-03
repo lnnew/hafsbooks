@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+  <title>WEB1 - Welcome</title>
+  <meta charset="utf-8">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body style="background:#e0fffc">
+      <style>
+
+          .content_wrapper {
+            margin-top:30px;
+            padding:50px;
+            background:white;
+                width:85%;
+             margin-left: auto;
+             margin-right: auto;
+              padding: 10px;
+          }
+          .header {
+            font-size:13px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid #e7e7e7;
+            background-color: #86DBD4;
+          }
+
+          li {
+            float: left;
+          }
+
+          li a {
+            display: block;
+            color: #666;
+            text-align: center;
+            padding: 10px 16px;
+            text-decoration: none;
+          }
+
+          li a:hover:not(.active) {
+            background-color: white;
+          }
+
+          li a.active {
+            color: black;
+            background-color: #FEE5A5;
+          }
+          .logo1 {
+            width:95%;
+          }
+          @media only screen and (max-width: 600px) {
+            li a {
+              padding: 10px 6px;
+          }
+            .content_wrapper {
+                  width:95%;
+            }
+          .header {
+            font-size:1.7vw;
+          }
+          .logo1 {
+            width:16vw;
+          }
+
+          }
+    </style>
+  <div class="content_wrapper">
+    <div class="w3-row">
+        <div class="w3-col" style="width:20%;">
+          <img src ="data\logo.jpg" class="logo1">
+        </div>
+      <ul class="header w3-col w3-container" style="width:80%">
+
+      <li style="width:20%"><a class="active" href="#home">Home</a></li>
+      <li style="width:23%"><a href="#intl">국제 도서</a></li>
+      <li style="width:23%"><a href="#contact">국내 도서</a></li>
+      <li style="width:29%"><a href="#about">공용 및 기타</a></li>
+    </ul>
+  </div>
+
+
+  <div id="p-grid">
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="pic-1.jpg"/>
+        <div class="p-name">Item A</div>
+        <div class="p-price">$99.99</div>
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <button class="p-add classA">Add to Cart</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="pic-2.jpg"/>
+        <div class="p-name">Item B</div>
+        <div class="p-price">$88.88</div>
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <button class="p-add classA">Add to Cart</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="pic-3.jpg"/>
+        <div class="p-name">Item C</div>
+        <div class="p-price">$77.77</div>
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <button class="p-add classB">Add to Cart</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="pic-4.jpg"/>
+        <div class="p-name">Item D</div>
+        <div class="p-price">$11.11</div>
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <button class="p-add classB">Add to Cart</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="pic-5.jpg"/>
+        <div class="p-name">Item E</div>
+        <div class="p-price">$22.22</div>
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <button class="p-add classC">Add to Cart</button>
+      </div></div>
+      <div class="p-grid"><div class="p-grid-in">
+        <img class="p-img" src="pic-6.jpg"/>
+        <div class="p-name">Item F</div>
+        <div class="p-price">$33.33</div>
+        <div class="p-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <button class="p-add classC">Add to Cart</button>
+      </div></div>
+    </div>
+    <style>
+       /* Grid container */
+       #p-grid {
+         max-width: 700px;
+         margin: 0 auto;
+         display: grid;
+         /* Width of columns */
+         grid-template-columns: 25% 25% 25% 25%;
+       }
+       /* Product items */
+       div.p-grid-in {
+         box-sizing: border-box;
+         margin: 5px;
+         padding: 10px;
+         border: 1px solid #e8f0ff;
+         background: #f2f7ff;
+       }
+       img.p-img {
+         width: 100%;
+         height: auto;
+       }
+       div.p-name {
+         font-weight: bold;
+         font-size: 1.1em;
+       }
+       div.p-price {
+         text-align:center;
+         color: #f44242;
+       }
+       div.p-desc {
+         color: #888;
+         font-size: 0.9em;
+       }
+       button.p-add:hover {
+         opacity:0.7;
+       }
+
+       button.p-add {
+         background: #f46b41;
+         color: #fff;
+         border: none;
+         width: 100%;
+         padding: 10px;
+         margin: 10px 5px 5px 5px;
+         font-size: 1.1em;
+         font-weight: bold;
+         cursor: pointer;
+       }
+       button.classA{
+          background: #86DBD4;
+       }
+       button.classB{
+          background: #FEE5A5;
+       }
+       button.classC{
+          background: #EDADBB;
+       }
+       /* Responsive */
+       @media only screen and (max-width: 1024px) {
+         #p-grid { grid-template-columns: 33% 33% 33%; }
+       }
+       @media only screen and (max-width: 600px) {
+         #p-grid { grid-template-columns: 50% 50%; }
+       }
+       /* [DOES NOT MATTER] */
+       html, body {
+         padding: 0;
+         margin: 0;
+         font-family: arial, sans-serif;
+       }
+     </style>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+
+<style>
+  .colors {
+    font-size:12px;
+  }
+  .header {
+    text-align: center;
+    background: #e0fffc;
+    font-size: 8px;
+  }
+  #img_logo {
+    align:left;
+    width:100px;
+    height:auto;
+  }
+
+  .content_wrapper {
+    width: 60%;
+     align:center;
+      margin:auto;
+  }
+  @media only screen and (max-width:600px) {
+    .content_wrapper {
+      width:95%;
+    }
+    .product-title {
+      font-size: 16px;
+    }
+    .price {
+      font-size: 13px;
+    }
+    .colors {
+            font-size: 9px;
+    }
+    .w3-button {
+
+        font-size: 10px;
+    }
+  }
+  /* Page Content */
+  .content {padding:20px;}
+</style>
+
+<div class="header">
+  <div id ="img_logo">
+  <img  src ="data\logo.jpg" class="logo1" style="width:100px;">
+  </div>
+</div>
+
+
+</head>
+<body>
+
+  <div class="w3-row w3-card content_wrapper" style ="border: 4px solid #95C9E1; padding-bottom:100px;">
+    <div class="w3-col s6 w3-center">
+      <div class ="w3-row">
+      <div class="w3-col s2"><p></p></div>
+      <div class="w3-col w3-card   s8">
+      <img src ="booksample.jpg" class="logo1"style="width:100%;align:center;">
+      </div>
+          <div class="w3-col s2"><p></p></div>
+    </div>
+    </div>
+    <div class="w3-col s6  w3-center" >
+      <div class="card" style="text-align:left;">
+            <div class="container-fliud">
+              <div class="wrapper row">
+
+                <div class="details col-md-6">
+                  <h3 class="product-title">men's shoes fashion</h3>
+                  <div class="rating">
+                    <div class="stars">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      </div>
+                    <span class="review-no">A급</span>
+                  </div>
+                <p class="price">정가: <span><s>$1</s></span></p>
+                <h5 class="price">판매가: <span><b style= "color: #86DBD6;">5000원</b></span></h5>
+          <p class="price">현재 상태:<span class="size" data-toggle="tooltip" title="small">구매 가능</span>  </p>
+                  <p class="colors">훼손 상태:
+                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+
+                  </p>
+                  <p class="colors">훼손 상태 설명:
+                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                  </p>
+                  <p class="colors">풀린 정도:
+                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+
+                  </p>
+                  <div class="action">
+                    <button class="w3-button add-to-cart btn btn-default" type="button" style="background-color:#F3AABD;">예약하기</button>
+                    <button class="w3-button like btn btn-default" type="button" style="background-color:#FCD0E9;"><span class="fa fa-heart"> 나중에 다시 보기</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>1
+    </div>1
+
+  </div>
+  <div class="w3-row"  style ="width: 60%; align:center; margin:auto; border: 4px solid #95C9E1; margin-top:30px;">
+    <img class ="hovering_img" id="myImg" src="https://res.cloudinary.com/dsla6v5o7/image/upload/sample.jpg" alt="Snow" style="height:150px;">
+  <img class ="hovering_img" id="myImg2" src="https://res.cloudinary.com/dsla6v5o7/image/upload/ykzgvgm4ybo4uj7b2qpg.jpg" alt="Snowwq" style="height:150px;">
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+  <style>
+
+  .hovering_img {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .hovering_img:hover {opacity: 0.7;}
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+
+  /* Modal Content (image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  /* Caption of Modal Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+
+  /* Add Animation */
+  .modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+  }
+  </style>
+  <script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById("myImg");
+  var img2 = document.getElementById("myImg2");
+    var img3 = document.getElementById("myImg3");
+      var img4 = document.getElementById("myImg4");
+        var img5 = document.getElementById("myImg5");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  img2.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  img3.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  img4.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  img5.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  </script>
+
+</div>
+
+</body>
+<html>

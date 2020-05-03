@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart</title>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);
+
+        * {
+          box-sizing: border-box;
+        }
+
+        html,
+        body {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          margin: 0;
+          background-color: #7EC855;
+          font-family: 'Roboto', sans-serif;
+        }
+
+        .shopping-cart {
+          width: 750px;
+          height: 100%;
+          margin: 80px auto;
+          background: #FFFFFF;
+          box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+          border-radius: 6px;
+
+          display: flex;
+          flex-direction: column;
+        }
+
+        .title {
+          height: 60px;
+          border-bottom: 1px solid #E1E8EE;
+          padding: 10px 10px;
+          color: #5E6977;
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        .item {
+          padding: 20px 30px;
+          height: 120px;
+          display: flex;
+        }
+
+        .item:nth-child(3) {
+          border-top:  1px solid #E1E8EE;
+          border-bottom:  1px solid #E1E8EE;
+        }
+
+        /* Buttons -  Delete and Like */
+        .buttons {
+          position: relative;
+          padding-top: 30px;
+          margin-right: 60px;
+        }
+
+        .delete-btn {
+          display: inline-block;
+          cursor: pointer;
+          width: 18px;
+          height: 17px;
+          background: url("delete-icn.svg") no-repeat center;
+          margin-right: 20px;
+        }
+
+        .like-btn {
+          font-size:10px;
+           text-align:center;
+          position: absolute;
+          top: 9px;
+          left: 15px;
+          display: inline-block;
+          background: url('twitter-heart.png');
+          width: 70px;
+          height: 70px;
+          background-size: 2900%;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+
+        .is-active {
+          animation-name: animate;
+          animation-duration: .8s;
+          animation-iteration-count: 1;
+          animation-timing-function: steps(28);
+          animation-fill-mode: forwards;
+        }
+
+        @keyframes animate {
+          0%   { background-position: left;  }
+          50%  { background-position: right; }
+          100% { background-position: right; }
+        }
+
+        /* Product Image */
+        .image {
+          margin-right: 50px;
+        }
+
+        /* Product Description */
+        .description {
+          padding-top: 10px;
+          margin-right: 60px;
+          width: 115px;
+        }
+
+        .description span {
+          display: block;
+          font-size: 14px;
+          color: #43484D;
+          font-weight: 400;
+        }
+
+        .description span:first-child {
+          margin-bottom: 5px;
+        }
+        .description span:last-child {
+          font-weight: 300;
+          margin-top: 8px;
+          color: #86939E;
+        }
+
+        /* Product Quantity */
+        .quantity {
+          padding-top: 20px;
+          margin-right: 60px;
+        }
+        .quantity input {
+          -webkit-appearance: none;
+          border: none;
+          text-align: center;
+          width: 32px;
+          font-size: 16px;
+          color: #43484D;
+          font-weight: 300;
+        }
+
+        button[class*=btn] {
+          width: 30px;
+          height: 30px;
+          background-color: #E1E8EE;
+          border-radius: 6px;
+          border: none;
+          cursor: pointer;
+        }
+        .minus-btn img {
+          margin-bottom: 3px;
+        }
+        .plus-btn img {
+          margin-top: 2px;
+        }
+        button:focus,
+        input:focus {
+          outline:0;
+        }
+
+        /* Total Price */
+        .total-price {
+          width: 83px;
+          padding-top: 27px;
+          text-align: center;
+          font-size: 16px;
+          color: #43484D;
+          font-weight: 300;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+          .shopping-cart {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+          }
+          .title {
+            font-size: 12px;
+          }
+          .item {
+            height: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          .image img {
+            width: 50%;
+          }
+          .image,
+          .quantity,
+          .description {
+            width: 100%;
+            text-align: center;
+            margin: 6px 0;
+          }
+          .buttons {
+            margin-right: 20px;
+          }
+        }
+
+    </style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <meta name="robots" content="noindex,follow" />
+  </head>
+  <body>
+    <div class="shopping-cart">
+      <!-- Title -->
+        <div class="title w3-row">
+      <div class="w3-col s2">
+        님 장바구니
+      </div>
+      <div class="w3-right" style="width:100px">
+ <a href="#footer" class="w3-button w3-card w3-round" style="background-color:#FCD0E9; font-size:11px;"><i class="fa fa-user w3-white" aria-hidden="true"></i>회원 정보 수정</a>
+      </div>
+      <div class=" w3-right" style="width:110px;">
+        <a href="#footer" class=" w3-button w3-card w3-round" style="background-color:#86DBD6; font-size:11px;"><i class="fa fa-user" style="color::white;"aria-hidden="true"></i><u>로그아웃하기</u></a>
+          </div>
+    </div>
+      <!-- Product #1 -->
+      <div class="item">
+        <div class="buttons">
+          <span class="delete-btn"></span>
+        </div>
+
+        <div class="image">
+          <img src="item-1.png" alt="" />
+        </div>
+
+        <div class="description">
+          <span>Common Projects</span>
+          <span>Bball High</span>
+          <span>White</span>
+        </div>
+<!--
+        <div class="quantity">
+          <button class="plus-btn" type="button" name="button">
+            <img src="plus.svg" alt="" />
+          </button>
+          <input type="text" name="name" value="1">
+          <button class="minus-btn" type="button" name="button">
+            <img src="minus.svg" alt="" />
+          </button>
+        </div>
+-->
+        <div class="total-price">$549</div>
+        <div class="buttons">
+        <span class="like-btn">예약하기</span>
+        </div>
+      </div>
+
+      <!-- Product #2 -->
+      <div class="item">
+        <div class="buttons">
+          <span class="delete-btn"></span>
+        </div>
+
+        <div class="image">
+          <img src="item-2.png" alt=""/>
+        </div>
+
+        <div class="description">
+          <span>Maison Margiela</span>
+          <span>Future Sneakers</span>
+          <span>White</span>
+        </div>
+
+
+        <div class="total-price">$870</div>
+        <div class="buttons">
+          <span class="like-btn">예약하기</span>
+        </div>
+      </div>
+
+      <!-- Product #3 -->
+      <div class="item">
+        <div class="buttons">
+          <span class="delete-btn"></span>
+        </div>
+
+        <div class="image">
+          <img src="item-3.png" alt="" />
+        </div>
+
+        <div class="description">
+          <span>Our Legacy</span>
+          <span>Brushed Scarf</span>
+          <span>Brown</span>
+        </div>
+
+        <div class="total-price">$349</div>
+        <div class="buttons">
+        <span class="like-btn">예약하기</span>
+        </div>
+      </div>
+      <!-- Product #3 -->
+      <div class="item">
+        <div class="buttons">
+          <span class="delete-btn"></span>
+        </div>
+
+        <div class="image">
+          <img src="item-3.png" alt="" />
+        </div>
+
+        <div class="description">
+          <span>Our Legacy</span>
+          <span>Brushed Scarf</span>
+          <span>Brown</span>
+        </div>
+
+        <div class="total-price">$349</div>
+        <div class="buttons">
+        <span class="like-btn">예약하기</span>
+        </div>
+      </div>
+      <!-- Product #3 -->
+      <div class="item">
+        <div class="buttons">
+          <span class="delete-btn"></span>
+        </div>
+
+        <div class="image">
+          <img src="item-3.png" alt="" />
+        </div>
+
+        <div class="description">
+          <span>Our Legacy</span>
+          <span>Brushed Scarf</span>
+          <span>Brown</span>
+        </div>
+
+        <div class="total-price">$349</div>
+        <div class="buttons">
+        <span class="like-btn">예약하기</span>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $('.minus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+    		if (value > 1) {
+    			value = value - 1;
+    		} else {
+    			value = 0;
+    		}
+
+        $input.val(value);
+
+    	});
+
+    	$('.plus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+    		if (value < 100) {
+      		value = value + 1;
+    		} else {
+    			value =100;
+    		}
+
+    		$input.val(value);
+    	});
+        $('.delete-btn').on('click', function() {
+          $(this).toggleClass('is-active');
+          if(confirm("장바구니에서 삭제하시겠습니까?")) {
+            }
+        });
+      $('.like-btn').on('click', function() {
+        if($(this).hasClass("booked")){
+          if(confirm("예약을 취소하시겠습니까?")) {
+              var date = new Date();
+            if(11<=date.getHours() && date.getHours()<=14) {
+              alert("오전 11시부터 오후 2시까지는 예약을 취소할 수 없습니다.");
+            } else {
+
+            $(this).toggleClass('is-active');
+              $(this).removeClass("booked");
+               $(this).html("예약하기");
+             }
+            }
+          }else{
+                          var date = new Date();
+            if( 11>date.getHours()) {
+              date.setDate(date.getDate());
+              var month=date.getMonth()+1;
+              var day = date.getDate();
+                if(confirm(`오늘(${month}월 ${day}일) 점심시간까지 예약하시겠습니까?`)) {
+              alert(`[책제목]예약이 완료되었습니다.오늘(${month}월 ${day}일) 점심시간 ~~시부터 ~~시에 ~~에서 지불할 금액을 준비하여 북마켓 부스를 방문해주시기 바랍니다.`)
+              $(this).toggleClass('is-active');
+              $(this).addClass("booked");
+               $(this).html(`예약됨(~${month}.${day}.)`);
+            }
+            } else {
+              if(  date.getHours()<=14) {
+                  alert("오전 11시부터 오후 2시까지는 예약할 수 없습니다.");
+              }
+              else {
+                date.setDate(date.getDate()+1);
+                var month=date.getMonth()+1;
+                var day = date.getDate();
+                if(confirm(`내일(${month}월 ${day}일) 점심시간까지 예약하시겠습니까?`)) {
+              alert(`[책제목]예약이 완료되었습니다.내일(${month}월 ${day}일) 점심시간 ~~시부터 ~~시에 ~~에서 지불할 금액을 준비하여 북마켓 부스를 방문해주시기 바랍니다.`)
+              $(this).toggleClass('is-active');
+              $(this).addClass("booked");
+               $(this).html(`예약됨(~${month}.${day}.)`);
+            }
+              }
+            }
+
+          }
+
+      });
+    </script>
+  </body>
+</html>

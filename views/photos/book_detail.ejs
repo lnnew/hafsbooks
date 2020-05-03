@@ -1,0 +1,123 @@
+<% layout('../layouts/default') %>
+
+<!-- A standard form for uploading images to your server -->
+<style>
+  .colors {
+    font-size:12px;
+  }
+  .header {
+    text-align: center;
+    background: #e0fffc;
+    font-size: 8px;
+  }
+  #img_logo {
+    align:left;
+    width:100px;
+    height:auto;
+  }
+
+  .content_wrapper {
+    width: 60%;
+     align:center;
+      margin:auto;
+  }
+  @media only screen and (max-width:600px) {
+    .content_wrapper {
+      width:95%;
+    }
+    .product-title {
+      font-size: 16px;
+    }
+    .price {
+      font-size: 13px;
+    }
+    .colors {
+            font-size: 9px;
+    }
+    .w3-button {
+
+        font-size: 10px;
+    }
+  }
+  /* Page Content */
+  .content {padding:20px;}
+</style>
+
+<div class="header">
+  <div id ="img_logo">
+  <img  src ="data\logo.jpg" class="logo1" style="width:100px;">
+  </div>
+</div>
+
+
+  <div class="w3-row w3-card content_wrapper" style ="border: 4px solid #95C9E1; padding-bottom:100px;">
+    <div class="w3-col s6 w3-center">
+      <div class ="w3-row">
+      <div class="w3-col s2"><p></p></div>
+      <div class="w3-col w3-card   s8">
+      <img src ="booksample.jpg" class="logo1"style="width:100%;align:center;">
+      </div>
+          <div class="w3-col s2"><p></p></div>
+    </div>
+    </div>
+    <div class="w3-col s6  w3-center" >
+      <div class="card" style="text-align:left;">
+            <div class="container-fliud">
+              <div class="wrapper row">
+
+                <div class="details col-md-6">
+                  <h3 class="product-title">men's shoes fashion</h3>
+                  <div class="rating">
+                    <div class="stars">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      </div>
+                    <span class="review-no">A급</span>
+                  </div>
+                <p class="price">정가: <span><s>$1</s></span></p>
+                <h5 class="price">판매가: <span><b style= "color: #86DBD6;">5000원</b></span></h5>
+          <p class="price">현재 상태:<span class="size" data-toggle="tooltip" title="small">구매 가능</span>  </p>
+                  <p class="colors">훼손 상태:
+                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+
+                  </p>
+                  <p class="colors">훼손 상태 설명:
+                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                  </p>
+                  <p class="colors">풀린 정도:
+                    <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+
+                  </p>
+                  <div class="action">
+                    <button class="w3-button add-to-cart btn btn-default" type="button" style="background-color:#F3AABD;">예약하기</button>
+                    <button class="w3-button like btn btn-default" type="button" style="background-color:#FCD0E9;"><span class="fa fa-heart"> 나중에 다시 보기</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>1
+    </div>1
+
+  </div>
+  <div class="w3-row"  style ="width: 60%; align:center; margin:auto; border: 4px solid #95C9E1; margin-top:30px;">
+  <img src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg" width="100px">
+  <img id = "more" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/hafsbooks/kmpbq66s3qhg6pm3x2n0.jpg" width="100px">
+  <span id="dots">...</span>
+  <button onclick="showorhide()" id="myBtn">Read more</button>
+
+  <script>
+  function showorhide() {
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+
+    if (moreText.style.display === "inline") {
+      btnText.innerHTML = "Read more";
+      moreText.style.display = "none";
+    } else {
+      btnText.innerHTML = "Read less";
+      moreText.style.display = "inline";
+    }
+  }
+  </script>
+</div>

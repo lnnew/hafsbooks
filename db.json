@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "provider": "facebook",
+      "id": "AgH92LeKP",
+      "email": "jinny6933@naver.com",
+      "displayName": "유지현",
+      "facebookId": "1090054591359640",
+      "studentID": "18-10122"
+    },
+    {
+      "id": "DtESSBxnK",
+      "email": "18-10122",
+      "password": "$2a$10$Qzvynf3hx.0xkh0A7hEn4./GiT4tp8sPtPDL0vJaYfW13EAihiYQW",
+      "displayName": "유지현"
+    }
+  ],
+  "topics": [
+    {
+      "id": "D2IY9XdEE",
+      "title": "",
+      "description": "u",
+      "user_id": "Zr8h7d7Fh"
+    }
+  ]
+}

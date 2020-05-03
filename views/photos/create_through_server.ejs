@@ -1,0 +1,22 @@
+<% layout('../layouts/default') %>
+<h3>업로드가 성공적으로 완료되었습니다!</h3>
+
+<div class="photo">
+  <a href="<%= photo.image.url %>" target="_blank">
+    <h5>대표 사진</h5>
+    <%-cloudinary.image(photo.image.public_id, {width: 150, height: 150, quality: 80,crop:'fill',format:'jpg',class:'thumbnail inline'})%>
+  </a>
+</div>
+<p>
+<a href="/photos/add" class="back_link"><h4 class="w3-padding w3-button w3-blue">책 하나 더 추가하기</h4></a>
+<a href="/" class="back_link"><h4 class="w3-padding w3-button w3-pink">홈으로 가기</h4></a></p>
+<% if (upload){ %>
+  <div class="upload_details">
+    <h2>Upload metadata:</h2>
+    <table>
+      <% for (var attr in upload){%>
+        <tr><td><%= attr %></td><td><%= JSON.stringify(upload[attr])%></td></tr>
+      <% }%>
+    </table>
+  </div>
+<% } %>

@@ -1,0 +1,169 @@
+<% layout('../layouts/default') %>
+
+<!-- A standard form for uploading images to your server -->
+<div id='backend_upload'>
+  <h1 align="center">책 등록하기</h1>
+  <p style="font-size:12px"><b>*</b>가 붙은 것은 필수 기재 사항이며, 붙어있지 않은것은 필요한 경우에만 기재해주세요!</p>
+  <form action="/photos" enctype="multipart/form-data" method="post">
+    <style>
+      .form_controls {
+        margin:20px;
+      }
+      </style>
+    <div class="form_line">
+
+      <label for="photo_image">Image:</label>
+      <div class="form_controls">
+        <input class ="w3-button w3-cyan"  id="photo_image" name="image" type="file" accept="image/*" required/>
+        <input id="photo_image_cache" name="image_cache" type="hidden" />
+      </div>
+
+      <label for="book_title"><b>*</b>책 제목:</label>
+      <div class="form_controls">
+      <input id="book_title" name="book_title" type="text"  required/>
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+          $(document).ready(function() {
+          var selectors = ["first_cat", "second_cat"]
+
+            $('select').on('change', function() {
+              var index = selectors.indexOf(this.id)
+              var value = this.value
+
+              // check if is the last one or not
+              if (index < selectors.length - 1) {
+                var next = $('#' + selectors[index + 1])
+
+                // Show all the options in next select
+                $(next).find('option').show()
+                if (value != "") {
+                  // if this select's value is not empty
+                  // hide some of the options
+                  $(next).find('option[data-value!=\'' + value + '\']').hide()
+                }
+
+                // set next select's value to be the first option's value
+                // and trigger change()
+                $(next).val($(next).find("option:first").val()).change()
+              }
+            })
+          });
+      </script>
+
+      <label for="first_cat"><b>*</b>1차 카테고리:</label>
+      <div class="form_controls">
+      <select name="first_cat" id="first_cat">
+         <option value=""> -- 1차 분류를 선택하세요 -- </option>
+           <option value="국제 도서">국제 도서</option>
+           <option value="국내 도서">국내 도서</option>
+           <option value="공용 및 기타">공용 및 기타</option>
+
+      </select>
+      </div>
+
+      <label for="second_cat"><b>*</b>2차 카테고리:</label>
+      <div class="form_controls">
+        <select name="second_cat" id="second_cat">
+            <option value="">-- 2차 분류를 선택하세요 -- </option>
+            <% for(var i = 0; i < 3; i++) { %>
+              <%var current_cat = categories[i];%>
+              <%var cat_name = current_cat.category_name; %>
+                <% for(var j = 0; j < current_cat.category.length ; j++) { %>
+                  <%var sub_cat_name =current_cat.category[j];  %>
+                  <option data-value="<%=cat_name%>" value="<%=sub_cat_name%>"><%=sub_cat_name%></option>
+                   <% } %>
+                 <% } %>
+
+
+        </select>
+      </div>
+
+      <label for="price_before"><b>*</b>정가:</label>
+      <div class="form_controls">
+      <input id="price_before" name="price_before" type="number"  required/>
+      </div>
+
+      <label for="price_after"><b>*</b>실제 판매가:</label>
+      <div class="form_controls">
+      <input id="price_after" name="price_after" type="number"  required/>
+      </div>
+
+      <label for="grade"><b>*</b>등급(A,B,C):</label>
+      <div class="form_controls">
+        <p><input type="radio" id="grade" name="grade" value="A">A
+           <input type="radio" id="grade1" name="grade" value="B">B
+           <input type="radio" id="grade2" name="grade" value="C">C</p>
+      </div>
+
+      <label for="how_harmed"><b>*</b>훼손 상태: </label>
+      <div class="form_controls">
+        <p><input type="radio" id="how_harmed" name="how_harmed" value="0">상
+           <input type="radio" id="how_harmed1" name="how_harmed" value="1">중
+           <input type="radio" id="how_harmed2" name="how_harmed" value="2">히</p>
+      </div>
+
+
+
+      <label for="harm_etc">훼손 상태 상세 설명:</label>
+      <div class="form_controls">
+    <textarea id="harm_etc" name="harm_etc" type="text"/>
+     </textarea>
+    </div>
+    <label for="how_solved"><b>*</b>이미 풀려 있는 정도:</label>
+    <div class="form_controls">
+      <p><input type="radio" id="how_solved" name="how_solved" value="0">새것
+         <input type="radio" id="how_solved1" name="how_solved" value="1">새것에 가까움
+         <input type="radio" id="how_solved2" name="how_solved" value="2">절반 이하가 풀림
+         <input type="radio" id="how_solved2" name="how_solved" value="3">절반 이상이 풀림</p>
+    </div>
+
+      <label for="solved_etc">풀린 정도 상세 설명:</label>
+      <div class="form_controls">
+      <textarea id="solved_etc" name="solved_etc" type="text" />
+      </textarea>
+      </div>
+
+      <label for="etc_info">기타 참고 사항:</label>
+      <div class="form_controls">
+      <textarea id="etc_info" name="etc_info" type="text" />
+      </textarea>
+      </div>
+      <label for="uploader_name"><b>*</b>업로드자 이름(ex:14홍길동):</label>
+      <div class="form_controls">
+      <input id="uploader_name" name="uploader_name" type="text"  required/>
+      </div>
+      <label for="photo_image">추가 사진 업로드</label>
+      <div class="form_controls">
+        <input class ="w3-button w3-cyan"  id="photo_image1" name="image1" type="file" accept="image/*" />
+        <input id="photo_image_cache1" name="image_cache1" type="hidden" />
+      </div>
+      <label for="photo_image"></label>
+      <div class="form_controls">
+        <input class ="w3-button w3-cyan"  id="photo_image2" name="image2" type="file" accept="image/*"/>
+        <input id="photo_image_cache2" name="image_cache2" type="hidden" />
+      </div>
+      <div class="form_controls">
+        <input class ="w3-button w3-cyan"  id="photo_image3" name="image3" type="file" accept="image/*"/>
+        <input id="photo_image_cache3" name="image_cache3" type="hidden" />
+      </div>
+      <div class="form_controls">
+        <input class ="w3-button w3-cyan"  id="photo_image4" name="image4" type="file" accept="image/*"/>
+        <input id="photo_image_cache4" name="image_cache4" type="hidden" />
+      </div>
+      <div class="form_controls">
+        <input class ="w3-button w3-cyan"  id="photo_image5" name="image5" type="file" accept="image/*"/>
+        <input id="photo_image_cache5" name="image_cache5" type="hidden" />
+      </div>
+    </div>
+    <div class="form_line">
+      <div class="form_controls">
+        <input class ="w3-button w3-pink" name="commit" type="submit" value="책 등록하기" />
+
+      </div>
+    </div>
+    <input id="direct" name="direct" type="hidden" />
+</form></div>
+
+<a href="/" class="back_link">돌아가기</a>
