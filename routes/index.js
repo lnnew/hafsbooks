@@ -40,7 +40,7 @@ router.get('/', function (request, response) {
         <div class="fcontainer" >
         <form action="/auth/stu_process" method="post">
           <p><input type="text" name="studentID" placeholder="현재 학번(예시: 18-10101)" required></p>
-                <input type="submit" value="수정 완료">
+                <input type="submit" value="가입 완료하기">
           </p>
         </form>
       </div>
