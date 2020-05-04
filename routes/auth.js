@@ -27,7 +27,7 @@ module.exports = function (passport) {
     if (fmsg.error) {
       feedback = fmsg.error[0];
     }
-    var title = 'WEB - login';
+    var title = 'HAFS 책방 로그인';
 
     var html = template.login(title,  `
       <div class="fcontainer" >
@@ -50,7 +50,7 @@ module.exports = function (passport) {
     if (fmsg.error) {
       feedback = fmsg.error[0];
     }
-    var title = 'WEB - login';
+    var title =  'HAFS 책방 로그인';
     var html = template.login(title, `
       <div class="fcontainer" >
       <div style="color:red;">${feedback}</div>
@@ -80,7 +80,7 @@ module.exports = function (passport) {
     if (fmsg.error) {
       feedback = fmsg.error[0];
     }
-    var title = 'WEB - login';
+       var title =  'HAFS 책방 가입하기';
     var html = template.login(title,  `
       <div class="fcontainer" >
         <div style="color:red;">${feedback}</div>
@@ -222,7 +222,7 @@ module.exports = function (passport) {
     }
   });
   router.get('/first_studentid', function (request, response) {
-  var title = 'WEB - login';
+      var title =  'HAFS 책방 가입 마치기';
   var html = template.login(title, `
     <div class="fcontainer" >
     <script>
