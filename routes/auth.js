@@ -1539,11 +1539,13 @@ res.redirect(`/?cat=${sec_cat}`);
           if(t.is_selling=="x") {
             var reserve =`<button class="w3-button add-to-cart btn btn-default w3-card w3-round" type="button" style="background-color:#F3AABD;" ><span class="fa fa-heart" disabled>판매완료</span</button>`;
           }
+            var howwharm = ["훼손 없음",'조금 훼손됨','많은 부분이 훼손됨'][t.how_harmed];
+          var howwsolved =['새것','새것에 가까움','절반 이하가 풀림','절반 이상이 풀림'][t.how_solved];
           var template =`<!doctype html>
           <html>
 
           <head>
-          <title>Page Title</title>
+          <title>HAFS책방-책 상세보기</title>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1637,14 +1639,14 @@ res.redirect(`/?cat=${sec_cat}`);
                           <h5 class="price">판매가: <span><b style= "color: #86DBD6;">${t.price_after}원</b></span></h5>
                     <p class="price">현재 상태:<span class="size" data-toggle="tooltip" title="small">구매 가능</span>  </p>
                             <p class="colors">훼손 상태:
-                              <span class="color orange not-available" data-toggle="tooltip" title="Not In store">${t.how_harmed}</span>
+                              <span class="color orange not-available" data-toggle="tooltip" title="Not In store">${howwharm}</span>
 
                             </p>
                             <p class="colors">훼손 상태 설명:
                               <span class="color orange not-available" data-toggle="tooltip" title="Not In store">${t.harm_etc}</span>
                             </p>
                             <p class="colors">풀린 정도:
-                              <span class="color orange not-available" data-toggle="tooltip" title="Not In store">${t.how_solved}</span>
+                              <span class="color orange not-available" data-toggle="tooltip" title="Not In store">${howwsolved}</span>
 
                             </p>
                             <div class="action">
