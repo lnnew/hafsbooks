@@ -1,5 +1,5 @@
 {
     "clientID": "761898631005456",
     "clientSecret": "7c310646abb7d1daa7a59aea17d77617",
-    "callbackURL": "https://hafsbooks.herokuapp.com/auth/facebook/callback"
+    "callbackURL": "https://hafsbook.store/auth/facebook/callback"
 }
