@@ -1653,15 +1653,10 @@ res.redirect(`/?cat=${sec_cat}`);
                               ${reserve}
                               <script type="text/javascript">
                               $('.canceler').on('click', function() {
-                                            var date = new Date();
-                              if( 11<date.getHours() && date.getHours()<14) {
-                                  alert("오전 11시부터 오후 2시까지는 예약을 취소할 수 없습니다.");
-                }else{
-                  if(confirm("${t.book_title} 책을 예약 취소하시겠습니까?")) {
+                 if(confirm("${t.book_title} 책을 예약 취소하시겠습니까?")) {
                     location.href="/auth/cancel_book?id=${id}";
                   }
 
-                }
 
               });
                 function adder() {
@@ -1669,35 +1664,15 @@ res.redirect(`/?cat=${sec_cat}`);
                       location.href='/auth/add_to_shopping_cart?id='+'${id}';
                       }
                 }
-                                $('.booker').on('click', function() {
-                                              var date = new Date();
-                                if( 11>date.getHours()) {
-                                  date.setDate(date.getDate());
-                                  var month=date.getMonth()+1;
-                                  var day = date.getDate();
-                                    if(confirm('오늘('+month+'월'+day+'일) 점심시간까지 예약하시겠습니까?')) {
-                                  alert('[책제목]예약이 완료되었습니다.오늘('+month+'월'+day+'일) 점심시간 ~~시부터 ~~시에 ~~에서 지불할 금액을 준비하여 북마켓 부스를 방문해주시기 바랍니다.')
+                                 $('.booker').on('click', function() {
+                              
+                                    if(confirm('"${t.book_title}"을 예약하시겠습니까?')) {
+                                  alert('${t.book_title} 예약이 완료되었습니다.수령 절차 및 결제는 국내학습부 공지를 참조해주세요.')
                                   $(this).toggleClass('is-active');
                                   $(this).addClass("booked");
-                                   $(this).html('예약 완료(~'+month+'.'+day+'.)');
+                                   $(this).html('예약 완료');
+                                    location.href="/auth/book_process/?id=${id}";
                                 }
-                                } else {
-                                  if(  date.getHours()<14) {
-                                      alert("오전 11시부터 오후 2시까지는 예약할 수 없습니다.");
-                                  }
-                                  else {
-                                    date.setDate(date.getDate()+1);
-                                    var month=date.getMonth()+1;
-                                    var day = date.getDate();
-                                    if(confirm('내일('+month+'월'+day+'일) 점심시간까지 예약하시겠습니까?')) {
-                                  alert('[책제목]예약이 완료되었습니다.내일('+month+'월'+day+'일) 점심시간 ~~시부터 ~~시에 ~~에서 지불할 금액을 준비하여 북마켓 부스를 방문해주시기 바랍니다.')
-                                  $(this).toggleClass('is-active');
-                                  $(this).addClass("booked");
-                                   $(this).html('예약됨(~'+month+'.'+day+'.)');
-                                   location.href="/auth/book_process/?id=${id}";
-                                }
-                                  }
-                  }
 
 
                 })
