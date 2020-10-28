@@ -18,12 +18,12 @@ router.get('/wrong_id_format', function (request, response) {
   var title = 'WEB - login';
   var html = template.login(title,  `
     <script>
-      alert("학번 형식이 맞지 않습니다.(예시: 18-10101)");
+      alert("학번 형식이 맞지 않습니다.(예시: 18-10101) You entered a student ID with a wrong format");
     </script>
     <div class="fcontainer" >
     <form action="/auth/stu_process" method="post">
-      <p><input type="text" name="studentID" placeholder="현재 학번(예시:18-10101)" required></p>
-            <input type="submit" value="수정 완료">
+      <p><input type="text" name="studentID" placeholder="현재 학번(ex:18-10101) Current Student ID" required></p>
+            <input type="submit" value="수정 완료 Save Changes">
       </p>
     </form>
     </div>
@@ -39,14 +39,14 @@ router.get('/', function (request, response) {
       var html = template.login(title, `
         <div class="fcontainer" >
         <form action="/auth/stu_process" method="post">
-          <p><input type="text" name="studentID" placeholder="현재 학번(예시: 18-10101)" required></p>
-                <input type="submit" value="가입 완료하기">
+          <p><input type="text" name="studentID" placeholder="현재 학번(예시: 18-10101) Current Student ID" required></p>
+                <input type="submit" value="가입 완료하기 Complete Registration">
           </p>
         </form>
       </div>
 
         <script>
-          alert("최조 등록시 학번 등록이 필요합니다.");
+          alert("최조 등록시 학번 등록이 필요합니다. You have to add your student ID");
         </script>
       `);
       response.send(html);
@@ -150,13 +150,13 @@ color:#f06287;
            var status;
            if(t.is_selling=="o" || t.is_selling==""|| t.is_selling==undefined) {
 
-             var status =`<button class="p-add classA adder" id ="${t.id}" data-sec="${t.second_cat}"><i class="fa fa-shopping-in w3-margin-right"></i>장바구니</button>`;
+             var status =`<button class="p-add classA adder" id ="${t.id}" data-sec="${t.second_cat}"><i class="fa fa-shopping-in w3-margin-right"></i>장바구니 Cart</button>`;
            }
            if(t.is_selling=="r") {
-             var status =`<button class="p-add classA"style="background-color:#95C9E1;"><i class="fa fa-ban w3-margin-right"></i>예약됨</button>`;
+             var status =`<button class="p-add classA"style="background-color:#95C9E1;"><i class="fa fa-ban w3-margin-right"></i>예약됨 Booked</button>`;
            }
            if(t.is_selling=="x") {
-             var status =`<button class="p-add classA" style="background-color:gray;"><i class="fa fa-ban w3-margin-right"></i>판매 완료</button>`;
+             var status =`<button class="p-add classA" style="background-color:gray;"><i class="fa fa-ban w3-margin-right"></i>판매 완료 Sold</button>`;
            }
 
            book_str+= `<div class="p-grid"><div class="p-grid-in">
@@ -165,7 +165,7 @@ color:#f06287;
              <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/${t.book_public_id}"/ style="width:80px;max-height:100px;">
              </div>
              <div class="p-name"><p>${t.book_title}</p></div>
-             <div class="p-price"><p>${t.price_after}원</p></div>
+             <div class="p-price"><p>${t.price_after}원 KRW</p></div>
              </a>
              ${status}
            </div></div>`;
@@ -193,12 +193,12 @@ color:#f06287;
             <div style="color:blue;">${feedback}</div>
           <a href="/auth/facebook">
         <div align="center">
-        <button class="login_button"><b>FACEBOOK으로 간편로그인</b></button></a>
+        <button class="login_button"><b>Login with Facebook</b></button></a>
         </div>
       </div>
             <div class="login_wrapper" >
-          <a href="/auth/login"><p style="font-size:9px;" align="center"><u>FACEBOOK 계정이 없는 경우 로그인</u></p></a>
-          <a href="/auth/register"><p  style="font-size:9px;" align="center"><u>FACEBOOK 계정이 없는 경우 회원가입</u></p></a>
+          <a href="/auth/login"><p style="font-size:9px;" align="center"><u>Login without Facebook Account(Facebook 계정이 없을 경우 로그인)</u></p></a>
+          <a href="/auth/register"><p  style="font-size:9px;" align="center"><u>Sign up without Facebook Account(Facebook 계정이 없을 경우 회원가입)</u></p></a>
         </div>
 
         `  );
