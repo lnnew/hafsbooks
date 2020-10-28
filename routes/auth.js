@@ -27,19 +27,19 @@ module.exports = function (passport) {
     if (fmsg.error) {
       feedback = fmsg.error[0];
     }
-    var title = 'HAFS 책방 로그인';
+    var title = 'HAFS 책방 로그인 (HAFSBookstore Login)';
 
     var html = template.login(title,  `
       <div class="fcontainer" >
 
       <form action="/auth/login_process" method="post">
-        <p><input type="text" name="email" placeholder="학번"  required></p>
-        <p><input type="password" name="pwd" placeholder="비밀번호" required></p>
+        <p><input type="text" name="email" placeholder="학번(Student ID)"  required></p>
+        <p><input type="password" name="pwd" placeholder="비밀번호(PW)" required></p>
         <p>
-            <input class="w3-button w3-light-blue w3-round-large" type="submit" value="로그인">
+            <input class="w3-button w3-light-blue w3-round-large" type="submit" value="로그인(Login)">
         </p>
       </form>
-          <div style="color:red;">로그인이 필요합니다.</div>
+          <div style="color:red;">로그인이 필요합니다. Login Required.</div>
       </div>
     ` );
     response.send(html);
@@ -50,15 +50,15 @@ module.exports = function (passport) {
     if (fmsg.error) {
       feedback = fmsg.error[0];
     }
-    var title =  'HAFS 책방 로그인';
+    var title =  'HAFS 책방 로그인(HAFSBookstore Login)';
     var html = template.login(title, `
       <div class="fcontainer" >
       <div style="color:red;">${feedback}</div>
       <form action="/auth/login_process" method="post">
-        <p><input type="text" name="email" placeholder="학번"  required></p>
-        <p><input type="password" name="pwd" placeholder="비밀번호" required></p>
+        <p><input type="text" name="email" placeholder="학번(Student ID)"  required></p>
+        <p><input type="password" name="pwd" placeholder="비밀번호(PW)" required></p>
         <p>
-          <input class="w3-button w3-light-blue w3-round-large" type="submit" value="로그인">
+          <input class="w3-button w3-light-blue w3-round-large" type="submit" value="로그인(Login)">
         </p>
       </form>
       </div>
@@ -80,17 +80,17 @@ module.exports = function (passport) {
     if (fmsg.error) {
       feedback = fmsg.error[0];
     }
-       var title =  'HAFS 책방 가입하기';
+       var title =  'HAFS 책방 가입하기(Sign up)';
     var html = template.login(title,  `
       <div class="fcontainer" >
         <div style="color:red;">${feedback}</div>
         <form action="/auth/register_process" method="post">
-          <p><input type="text" name="email" placeholder="학번(예: 18-10111)"  required></p>
-          <p><input type="password" name="pwd" placeholder="비밀번호" required></p>
-          <p><input type="password" name="pwd2" placeholder="비밀번호 확인" required></p>
-          <p><input type="text" name="displayName" placeholder="실명"  required></p>
+          <p><input type="text" name="email" placeholder="학번(ex: 18-10111) Student ID"  required></p>
+          <p><input type="password" name="pwd" placeholder="비밀번호 PW" required></p>
+          <p><input type="password" name="pwd2" placeholder="비밀번호 확인 PW Confirmation" required></p>
+          <p><input type="text" name="displayName" placeholder="실명 Name"  required></p>
           <p>
-            <button class ="w3-button w3-light-blue w3-round-large" type="submit">가입하기</button>
+            <button class ="w3-button w3-light-blue w3-round-large" type="submit">가입하기 Sign up</button>
           </p>
         </form>
         </div>
@@ -150,7 +150,7 @@ module.exports = function (passport) {
       console.log("이거",request.user);
       response.redirect('/auth/login_required');
     } else {
-      var title = '로그인하기';
+      var title = '로그인하기 Login';
       console.log(request.user);
       var html = template.login(title, `
         <div class="fcontainer" >
@@ -254,7 +254,7 @@ module.exports = function (passport) {
         if(request.query.cat) {
         var current_cat = request.query.cat;
         } else {
-          var current_cat= "모의고사";
+          var current_cat= "과탐";
         }
         if (error) {
           throw error
@@ -308,13 +308,13 @@ module.exports = function (passport) {
              var t=books[i];
              var status;
              if(t.is_selling=="o" || t.is_selling==""|| t.is_selling==undefined) {
-               var status =`<button class="p-add classA adder" id ="${t.id}" data-sec="${t.second_cat}"><i class="fa fa-shopping-in w3-margin-right"></i>장바구니</button>`;
+               var status =`<button class="p-add classA adder" id ="${t.id}" data-sec="${t.second_cat}"><i class="fa fa-shopping-in w3-margin-right"></i>장바구니 Cart</button>`;
              }
              if(t.is_selling=="r") {
-               var status =`<button class="p-add classA"style="background-color:#95C9E1;"><i class="fa fa-ban w3-margin-right"></i>예약됨</button>`;
+               var status =`<button class="p-add classA"style="background-color:#95C9E1;"><i class="fa fa-ban w3-margin-right"></i>예약됨 Booked</button>`;
              }
              if(t.is_selling=="x") {
-               var status =`<button class="p-add classA" style="background-color:gray;"><i class="fa fa-ban w3-margin-right"></i>판매 완료</button>`;
+               var status =`<button class="p-add classA" style="background-color:gray;"><i class="fa fa-ban w3-margin-right"></i>판매 완료 Sold</button>`;
              }
 
              book_str+= `<div class="p-grid"><div class="p-grid-in">
@@ -323,7 +323,7 @@ module.exports = function (passport) {
                <img class="p-img" src="http://res.cloudinary.com/dsla6v5o7/image/upload/v1587917729/${t.book_public_id}"/ style="width:80px;max-height:100px;">
                </div>
                <div class="p-name"><p>${t.book_title}</p></div>
-               <div class="p-price"><p>${t.price_after}원</p></div>
+               <div class="p-price"><p>${t.price_after}원 KRW</p></div>
                </a>
                ${status}
              </div></div>`;
@@ -499,9 +499,9 @@ module.exports = function (passport) {
                     <div class="w3-col ">
               <select class =" w3-button selector" name="first_cat" id="first_cat">
                  <option value=""> -- 1차 분류를 선택하세요 -- </option>
-                   <option value="국제 도서">국제 도서</option>
-                   <option value="국내 도서">국내 도서</option>
-                   <option value="공용 및 기타">공용 및 기타</option>
+                   <option value="국제 도서">국제 도서 Books for Intenational Course</option>
+                   <option value="국내 도서">국내 도서 Books for Domestic Course</option>
+                   <option value="공용 및 기타">공용 및 기타 ETC</option>
 
               </select>
               </div>
@@ -647,28 +647,28 @@ module.exports = function (passport) {
                      <input type="radio" id="how_harmed2" name="how_harmed" value="2"checked>하`
             }
             if(t.how_solved==0) {
-              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0" checked>새것
-                  <input type="radio" id="how_solved1" name="how_solved" value="1">새것에 가까움
-                  <input type="radio" id="how_solved2" name="how_solved" value="2">절반 이하가 풀림
-                  <input type="radio" id="how_solved2" name="how_solved" value="3">절반 이상이 풀림`
+              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0" checked>새것 Never used
+                  <input type="radio" id="how_solved1" name="how_solved" value="1">새것에 가까움 In a mint condition
+                  <input type="radio" id="how_solved2" name="how_solved" value="2">절반 이하가 풀림 Less than half is marked
+                  <input type="radio" id="how_solved2" name="how_solved" value="3">절반 이상이 풀림 More than half is marked`
             }
             if(t.how_solved==1) {
-              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0"새것
-                  <input type="radio" id="how_solved1" name="how_solved" value="1" checked>새것에 가까움
-                  <input type="radio" id="how_solved2" name="how_solved" value="2">절반 이하가 풀림
-                  <input type="radio" id="how_solved2" name="how_solved" value="3">절반 이상이 풀림`
+              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0"새것 Never used
+                  <input type="radio" id="how_solved1" name="how_solved" value="1" checked>새것에 가까움 In a mint condition
+                  <input type="radio" id="how_solved2" name="how_solved" value="2">절반 이하가 풀림 Less than half is marked
+                  <input type="radio" id="how_solved2" name="how_solved" value="3">절반 이상이 풀림 More than half is marked`
             }
             if(t.how_solved==2) {
-              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0">새것
-                  <input type="radio" id="how_solved1" name="how_solved" value="1">새것에 가까움
-                  <input type="radio" id="how_solved2" name="how_solved" value="2" checked>절반 이하가 풀림
-                  <input type="radio" id="how_solved2" name="how_solved" value="3">절반 이상이 풀림`
+              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0">새것 Never used
+                  <input type="radio" id="how_solved1" name="how_solved" value="1">새것에 가까움 In a mint condition
+                  <input type="radio" id="how_solved2" name="how_solved" value="2" checked>절반 이하가 풀림 Less than half is marked
+                  <input type="radio" id="how_solved2" name="how_solved" value="3">절반 이상이 풀림 More than half is marked`
             }
             if(t.how_solved==3) {
-              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0">새것
-                  <input type="radio" id="how_solved1" name="how_solved" value="1">새것에 가까움
-                  <input type="radio" id="how_solved2" name="how_solved" value="2">절반 이하가 풀림
-                  <input type="radio" id="how_solved2" name="how_solved" value="3" checked>절반 이상이 풀림`
+              var how_solved = `<input type="radio" id="how_solved" name="how_solved" value="0">새것 Never used
+                  <input type="radio" id="how_solved1" name="how_solved" value="1">새것에 가까움 In a mint condition
+                  <input type="radio" id="how_solved2" name="how_solved" value="2">절반 이하가 풀림 Less than half is marked
+                  <input type="radio" id="how_solved2" name="how_solved" value="3" checked>절반 이상이 풀림 More than half is marked`
             }
 
 
@@ -677,7 +677,7 @@ module.exports = function (passport) {
           <html>
 
           <head>
-          <title>HAFS 책방- 세부 정보 보기</title>
+          <title>HAFS 책방- 세부 정보 보기 HAFSBookstore-Details</title>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1539,8 +1539,8 @@ res.redirect(`/?cat=${sec_cat}`);
           if(t.is_selling=="x") {
             var reserve =`<button class="w3-button add-to-cart btn btn-default w3-card w3-round" type="button" style="background-color:#F3AABD;" ><span class="fa fa-heart" disabled>판매완료</span</button>`;
           }
-            var howwharm = ["훼손 없음",'조금 훼손됨','많은 부분이 훼손됨'][t.how_harmed];
-          var howwsolved =['새것','새것에 가까움','절반 이하가 풀림','절반 이상이 풀림'][t.how_solved];
+            var howwharm = ["훼손 없음 Never damaged",'조금 훼손됨 Partly damaged','많은 부분이 훼손됨 Significantly damaged'][t.how_harmed];
+          var howwsolved =['새것 Never used','새것에 가까움 In a mint condition','절반 이하가 풀림 Less than a half is marked','절반 이상이 풀림 More than a half is marked'][t.how_solved];
           var template =`<!doctype html>
           <html>
 
@@ -1665,7 +1665,7 @@ res.redirect(`/?cat=${sec_cat}`);
                       }
                 }
                                  $('.booker').on('click', function() {
-                              
+
                                     if(confirm('"${t.book_title}"을 예약하시겠습니까?')) {
                                   alert('${t.book_title} 예약이 완료되었습니다.수령 절차 및 결제는 국내학습부 공지를 참조해주세요.')
                                   $(this).toggleClass('is-active');
