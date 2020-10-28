@@ -68,7 +68,7 @@ module.exports = function (passport) {
 
   router.post('/login_process',
     passport.authenticate('local', {
-      successRedirect: '/',
+      successRedirect: '?cat=과탐#',
       failureRedirect: '/auth/login',
       failureFlash: true,
       successFlash: true
